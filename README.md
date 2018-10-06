@@ -7,6 +7,7 @@ O aplicativo feito em IONIC encontra-se na pasta app e precisar se executado alg
 2. Comandos do IONIC para o APP:
 <br>npm install -g ionic@3.20.0 cordova@7.1.0 --save
 (Instale essas versões)
+<br>npm i
 <br>ionic cordova platform add ios
 <br>ionic cordova platform add android
 
