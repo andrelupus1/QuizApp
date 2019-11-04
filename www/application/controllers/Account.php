@@ -154,7 +154,7 @@ class Account extends CI_Controller {
     public function email($emailUsuario){
         //$this->load->library('email');
         $urlAtivacao = base_url('/account/ativacao/?email=').$emailUsuario;//envia email via get
-        $subject = 'Ativação de conta de usuário - OftQuiz App';
+        $subject = 'Ativação de conta de usuário - QuizApp App';
         $message = '<p>Prezado,<br /> Clique no link baixo para ativar seu usuário:<br /></p>';
         // Get full html:
         $body = '<!DOCTYPE html>
@@ -191,7 +191,7 @@ class Account extends CI_Controller {
     //Recebe e-mail com a senha
     public function senhaEmail($emailUsuario, $senhaUsuario){
         //$this->load->library('email'); //Já iniciado no load
-        $subject = 'Recupera senha do usuário - OftQuiz App';
+        $subject = 'Recupera senha do usuário - QuizApp App';
         $message = '<p>Prezado,<br />Segue dados para acesso a sua conta:<br /></p>';
         $body = '<!DOCTYPE html>
         <head>
@@ -253,7 +253,7 @@ class Account extends CI_Controller {
         </head>
         <body>
         <div class="jumbotron text-center">
-        <h1><strong>Oft</strong>Quiz - App</h1>
+        <h1><strong>Quiz</strong>App - App</h1>
         </div>
             <div class="container">
                 <div class="row">
@@ -264,21 +264,16 @@ class Account extends CI_Controller {
                 </div>
                 </div>
             </div>
-        <p><strong>Oft</strong>Quiz</p>  
+        <p><strong>Quiz</strong>App</p>  
         </body>
         </html>';//fim body
-        $result = $this->email
-            ->from('naoresponda@oftquiz.com.br')
+        $this->email
+            ->from('naoresponda@localhost.com')
             //->reply_to('')    // Optional, an account where a human being reads.
             ->to($emailUsuario) //recebe o email
             ->subject($subject)
             ->message($body)
             ->send();
-      //ver erros
-     /*    var_dump($result);
-        echo '<br />';
-        echo $this->email->print_debugger(); */
-        //exit; 
     }
     public function reseta($resultado){
             //print_r($dados);

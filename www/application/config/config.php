@@ -23,8 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://198.136.59.226/~oftquiz/app/';
-$config['base_url'] = 'http://oftquiz.com.br/app/';
+$config['base_url'] = 'http://localhost/app/';
 
 /*
 |--------------------------------------------------------------------------

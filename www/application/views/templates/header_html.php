@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>OftQuiz - Sistema de Gestão de Conteúdo</title>
+        <title>QuizApp - Sistema de Gestão de Conteúdo</title>
         <meta http-equiv="author" content="Diego Sampaio - diego.estaleiro@gmail.com" />
 
         <!-- Tell the browser to be responsive to screen width -->
