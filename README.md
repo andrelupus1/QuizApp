@@ -8,8 +8,7 @@ O aplicativo feito em IONIC encontra-se na pasta app e precisar se executado alg
 <br>npm install -g ionic@3.20.0 cordova@7.1.0 --save
 (Instale essas versões)
 <br>npm i
-<br>onic cordova resources (* caso precise recriar os icones)
-<br>ionic cordova platform add ios (*No MacOs)
+<br>ionic cordova platform add ios
 <br>ionic cordova platform add android
 
 3. Configuração do Ambiente:
