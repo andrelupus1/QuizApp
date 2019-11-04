@@ -1,0 +1,57 @@
+<!--
+  Generated template for the GeraProvaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>QuizApp - Gerar Prova</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p>Configure abaixo a sua prova:</p>
+  <ion-list>
+    <ion-item>
+      <ion-label>Tipo de Prova</ion-label>
+      <ion-select #tipo [(ngModel)]="tipoProva" cancelText="Cancelar" okText="Selecionar">
+        <ion-option *ngFor="let ln of listaTipo" value="{{ln.id_tipo}}">{{ln.tipo}}</ion-option>
+      </ion-select> 
+    </ion-item>   
+    
+    <ion-item>
+      <ion-label>Qtde. de Questões</ion-label>
+      
+      <ion-select  #qtde [(ngModel)]="questoes" cancelText="Cancelar" okText="Selecionar">
+        <ion-option value="10" selected="true">10</ion-option>
+        <ion-option value="5">5</ion-option>
+        <!--<ion-option value="50">50</ion-option>
+        <ion-option value="100">100</ion-option> -->
+      </ion-select>
+    </ion-item>
+    
+    <ion-list>
+      <ion-item>
+        <b>Disciplinas</b>
+      </ion-item>
+      <ion-item class="boxNull">
+        Atenção! Ao não selecionar nenhuma disciplina, o sistema escolherá as mesmas aleatoriamente!
+      </ion-item>
+      <ion-item *ngFor="let dsc of disciplinas">
+        <ion-label>{{ dsc.disciplina }}</ion-label> 
+        <ion-toggle #slcDisc (ngModel)="slcDisc[dsc.id_disciplina]" checked="{{ dsc.checked }}" (ionChange)="slcDisciplina(dsc.id_disciplina)"></ion-toggle>
+      </ion-item>
+    </ion-list>
+    
+   
+  </ion-list>
+  <button ion-button color="secondary" full (click)="getProva()">Gerar Prova</button>
+
+</ion-content>

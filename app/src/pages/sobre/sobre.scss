@@ -1,0 +1,15 @@
+page-sobre {
+    .text-center{
+        text-align: center;
+    }
+    .splash-logo {
+        margin: auto;
+        background: url('../assets/img/appicon.jpg') no-repeat transparent;
+        background-size: 100%;
+        width: 128px;
+        height: 140px;
+    }
+    .textJust{
+        text-align: justify;
+    }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "QuizApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "app_id": ""
+}

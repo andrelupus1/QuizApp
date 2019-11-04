@@ -1,0 +1,29 @@
+<ion-header>
+    
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>QuizApp - Recupera Senha</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formgroup">
+    <ion-list> 
+      <ion-item>
+          <ion-label floating>Digite seu e-mail!</ion-label>
+          <ion-input type="email"
+                    [(ngModel)]="email"
+                    formControlName="email"
+                    clearInput clearOnEdit="false"></ion-input>
+      </ion-item>
+          <h6 *ngIf="errorEmail" class="error">{{messageEmail}}</h6>
+       
+    </ion-list>
+  </form>
+    <button ion-button color="secondary" full (click)="recuperaForm()">Recuperar</button>
+   <!--  <p>Valor do formulário: {{formgroup.value | json}}</p> -->
+   <!--  <p>Validation status: {{ formgroup.status }}</p> -->
+
+  </ion-content>

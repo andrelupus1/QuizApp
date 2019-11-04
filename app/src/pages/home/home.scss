@@ -1,0 +1,41 @@
+page-home {  
+    .subheader{
+        padding: 10px;
+        color: #1a435c;//#09a266;
+    }  
+    .chamadas{
+        padding: 10px;
+        background: #f7f6f6;
+    }
+    .boxChamadas, .boxChamadas2{        
+        text-align: center;
+        font-size: 86px;
+    }
+    .prova{
+        background: #1c6998;
+        color: #fff;
+        margin: 5px 0 !important;
+        padding: 15% 0;        
+    }
+    .prova span{
+        display: block;
+        font-size: 18px;
+    }
+    .perfil{
+        background: #c22e2f;
+        color: #fff;
+        font-size: 46px;
+        padding: 15% 0;
+    }
+    .ranking{
+        background: #ffbb01;
+        color: #fff;//#366720;
+        margin: 0 0 5px 0 !important;
+        font-size: 46px;
+        padding: 15% 0;
+    }
+    .perfil span, .ranking span{
+        font-size: 16px;
+        display: block;
+    }
+}

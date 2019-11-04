@@ -1,0 +1,52 @@
+<!--
+  Generated template for the PerfilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>QuizApp - Meu Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        
+      <ion-item>
+        <ion-label floating>Seu Nome</ion-label>
+        <ion-input type="text" value="{{ user.nome }}" #nome></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Seu E-mail</ion-label>
+          <ion-input type="email" value="{{ user.email }}" #email></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label floating>Seu Nickname</ion-label>
+          <ion-input type="text" value="{{ user.nickName }}" #nick></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Atualizar Senha</ion-label>
+        <ion-input type="password" #senha></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>CRM</ion-label>
+        <ion-select #uf class="select">
+            <ion-option *ngFor="let uf of estados" value="{{ uf.Sigla }}">{{ uf.Sigla }}</ion-option>
+        </ion-select>
+        <ion-input type="number" class="num" value="{{ user.crm }}" item-end #crm></ion-input>
+        <ion-input type="hidden" value="{{ user.id }}" #id></ion-input>
+      </ion-item>
+    
+    </ion-list>
+    <button ion-button full color="secondary" (click)="getAtualizaUsuario()">Atualizar Dados</button>
+
+
+</ion-content>

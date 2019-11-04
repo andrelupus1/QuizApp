@@ -1,0 +1,59 @@
+page-prova {
+    ion-label{
+        white-space: normal; 
+    }
+    .listaQuestoes{
+        padding: 0 !important;
+        margin: 0 !important;
+        text-align: left;
+    }
+    .segment-md .segment-button{
+        color: #09a266;
+    }
+    .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+        color: #09a266;
+        border-bottom: 1px solid #09a266;
+    }
+    .boxMsgSucesso{
+        color: #3c763d;
+        padding: 7px;
+        border-radius: 4px;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        text-shadow: 0 1px 0 rgba(255,255,255,.2);
+        -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+        background-image: -webkit-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+        background-image: -o-linear-gradient(top,#dff0d8 0,#c8e5bc 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#dff0d8),to(#c8e5bc));
+        background-image: linear-gradient(to bottom,#dff0d8 0,#c8e5bc 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdff0d8', endColorstr='#ffc8e5bc', GradientType=0);
+        background-repeat: repeat-x;
+        border-color: #b2dba1;
+    }
+    .boxMsgErro{
+        color: #a94442;
+        padding: 7px;
+        border-radius: 4px;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+        background-image: -webkit-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+        background-image: -o-linear-gradient(top,#f2dede 0,#e7c3c3 100%);
+        background-image: -webkit-gradient(linear,left top,left bottom,from(#f2dede),to(#e7c3c3));
+        background-image: linear-gradient(to bottom,#f2dede 0,#e7c3c3 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffe7c3c3', GradientType=0);
+        background-repeat: repeat-x;
+        border-color: #dca7a7;
+        text-shadow: 0 1px 0 rgba(255,255,255,.2);
+        -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.25), 0 1px 2px rgba(0,0,0,.05);
+    }
+    .nao-favorita, .favorita{
+        color: #f5cb23;
+        font-size: 36px;
+    }
+    .txtQuestao{
+        text-align: justify;
+    }
+    
+}

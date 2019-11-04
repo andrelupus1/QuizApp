@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>QuizApp - Novo Cadastro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formgroup">
+    <ion-list>    
+      <ion-item >
+        <ion-label floating>Seu Nome *</ion-label>
+        <ion-input type="text"
+                  [(ngModel)]="nome"
+                  formControlName="nome"
+                  min="5"
+                  max="50"
+                  clearInput clearOnEdit="false">
+                </ion-input>
+      </ion-item>
+          <h6 *ngIf="errorNome" class="error">{{messageNome}}</h6>
+      <ion-item>
+          <ion-label floating>Seu E-mail *</ion-label>
+          <ion-input type="email"
+                    [(ngModel)]="email"
+                    formControlName="email"
+                    clearInput clearOnEdit="false"></ion-input>
+      </ion-item>
+          <h6 *ngIf="errorEmail" class="error">{{messageEmail}}</h6>
+       <ion-item>
+          <ion-label floating>Seu Nickname *</ion-label>
+          <ion-input type="text"
+                    [(ngModel)]="nick"
+                    formControlName="nick"
+                    clearInput clearOnEdit="false">
+                  </ion-input>
+      </ion-item>
+          <h6 *ngIf="errorNick" class="error">{{messageNick}}</h6>
+      <ion-item>
+          <ion-label floating>Sua Senha *</ion-label>
+          <ion-input type="password" [(ngModel)]="senha"
+                    formControlName="senha"
+                    min="6"
+                    max="20"
+                    clearInput clearOnEdit="false"></ion-input>
+        </ion-item>
+            <h6 *ngIf="errorSenha" class="error">{{messageSenha}}</h6>
+        <ion-item class="crmItem">
+        <ion-label floating>CRM</ion-label>
+        <ion-select #uf class="select">
+          <ion-option *ngFor="let uf of estados" value="{{ uf.Sigla }}">{{ uf.Sigla }}</ion-option>
+        </ion-select>
+        <ion-input type="number" class="num" item-end #crm ></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+    <span>*Obrigatório</span>
+    <button ion-button color="secondary" full (click)="cadastroForm()">Cadastrar</button>
+   <!--  <p>Valor do formulário: {{formgroup.value | json}}</p> -->
+   <!--  <p>Validation status: {{ formgroup.status }}</p> -->
+
+  </ion-content>

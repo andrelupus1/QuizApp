@@ -1,0 +1,104 @@
+<!--
+  Generated template for the ProvaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    
+  <ion-navbar color="secondary" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngFor="let item of dadosProva">QuizApp #{{ item.avaliacao }} - {{ item.tipoProva }}</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="questoes">   
+        <ng-container *ngFor="let qst of listaQuestoes" >
+            <ion-segment-button *ngIf="qst.statusQuest == 0" (click)="mudaQuestao(qst.ordemQuestao)" value="{{ qst.ordemQuestao }}" style="color:#000"><b>{{ qst.ordemQuestao }}</b></ion-segment-button>      
+            <ion-segment-button *ngIf="qst.statusQuest == 1" (click)="mudaQuestao(qst.ordemQuestao)" value="{{ qst.ordemQuestao }}">{{ qst.ordemQuestao }}</ion-segment-button>      
+        </ng-container>     
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content padding>
+  
+<div [ngSwitch]="questoes">
+  <ng-container *ngFor="let quest of listaQuestoes">
+    <ion-list *ngSwitchCase="quest.ordemQuestao" >
+
+        <ion-grid>
+            <ion-row>
+              <ion-col col-11>
+                <p *ngFor="let dd of dadosProva">Prova gerada em {{ dd.dataAbertura }}</p>        
+              </ion-col>
+              <ion-col col-1 align-self-end>
+                <ng-container *ngFor="let fav of listaQuestoes" >
+                  <!-- QUESTÃO FAVORITADA-->
+                  <ion-icon class="favorita" name="star" *ngIf="fav.favorita == 'true' && quest.idQuestao == fav.idQuestao" (click)="questaoFavorita(fav.avaliacao_id, fav.idQuestao, 0)"></ion-icon>
+                  <!-- QUESTÃO NÃO FAVORITADA-->
+                  <ion-icon class="nao-favorita" name="ios-star-outline" *ngIf="fav.favorita == 'false' && quest.idQuestao == fav.idQuestao" (click)="questaoFavorita(fav.avaliacao_id, fav.idQuestao, 1)"></ion-icon>
+                </ng-container>
+                
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+      <div *ngIf="quest.altCorreta == quest.altSelecionada && quest.statusQuest == 1" class="boxMsgSucesso">
+        Parabéns! Você acertou esta questão!
+      </div>
+      <div *ngIf="quest.altCorreta != quest.altSelecionada && quest.statusQuest == 1" class="boxMsgErro">
+        Ops! Você errou esta questão!
+      </div>
+
+      <ion-item class="txtQuestao">
+          <p *ngIf="quest.img != NULL">
+            <img src="{{ quest.img }}" alt="" imageViewer>
+          </p>
+          <b>Questão {{ quest.ordemQuestao }}</b> {{ quest.enunciado }}
+      </ion-item>
+      <!--
+        -- QUESTÕES COM STATUS DE NÃO RESPONDIDAS
+        -- HABILITA TOGGLE DE RESPOSTAS
+      -->
+      <ion-list radio-group *ngIf="quest.statusQuest == 0">              
+          <ion-item *ngFor="let alt of quest.alternativas" >
+            <ion-label class="txtQuestao">{{ alt.enunciadoAlternativa }}</ion-label>
+            <ion-radio (click)="getResposta(quest.avaliacao_id, quest.idQuestao, alt.idAlternativa, alt.altCorreta)" item-start></ion-radio>
+          </ion-item>
+      </ion-list>
+      <!--
+        -- QUESTÕES COM STATUS DE RESPONDIDAS
+        -- MODO APENAS DE LEITURA
+      -->
+      <ion-list radio-group *ngIf="quest.statusQuest == 1">              
+          <ion-item *ngFor="let alt of quest.alternativas" >
+            <ion-label class="txtQuestao">{{ alt.enunciadoAlternativa }}</ion-label>
+            <ion-icon name="md-radio-button-on" *ngIf="alt.idAlternativa == quest.altSelecionada" item-start></ion-icon>
+            <ion-icon name="ios-radio-button-off-outline" *ngIf="alt.altCorreta == 0 && alt.idAlternativa != quest.altSelecionada" item-start></ion-icon>
+            <ion-icon name="md-checkmark" *ngIf="alt.altCorreta == 1" item-start></ion-icon>
+            
+          </ion-item>
+      </ion-list>
+
+      <!--
+        -- QUESTÕES COM STATUS DE RESPONDIDAS
+        -- EXIBE COMENTÁRIO
+      -->
+      <ion-list *ngIf="quest.statusQuest == 1"> 
+        <ion-item><b>Comentário da Questão:</b></ion-item>
+        <ion-item class="txtQuestao">
+          {{ quest.comentario }}        
+        </ion-item>
+      </ion-list>
+      
+    </ion-list>
+  </ng-container>
+  </div>
+  <ion-item>
+      <span> <a href="{{urlBanner}}" target="_blank"><img src="{{imgBanner}}"></a> </span>
+    </ion-item>
+</ion-content>
